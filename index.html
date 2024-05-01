@@ -6,6 +6,7 @@
             height: 100%;
             margin: 0; /* Remove default margin */
             overflow: hidden; /* Hide any overflow content */
+            position: relative; /* Set position to relative */
         }
         iframe {
             width: 100vw;
@@ -21,6 +22,22 @@
             bottom: 0;
             width: 100%; /* Updated width to 100% */
         }
+        /* Added styles for the reload button */
+        .reload-button {
+            position: absolute;
+            top: 10px; /* Adjust top position */
+            right: 10px; /* Adjust right position */
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+        /* Added styles for the pencil image */
+        .pencil-image {
+            width: 20px; /* Set width */
+            height: 20px; /* Set height */
+            background-image: url('https://media.gettyimages.com/id/1048168090/vector/talking-pencil.jpg?s=612x612&w=0&k=20&c=koqM-jCUHpNlQkn3PjEZX-9ki2FQzamvRQaL4LNvgOE='); /* Add pencil image */
+            background-size: cover;
+        }
     </style>
 </head>
 <body>
@@ -32,9 +49,11 @@
 </iframe>
 <footer>
   <p> Selena.ai Powered by Circuit seekers #Circuit RIKA</p>
-  <!-- Added reload button -->
-  <button onclick="reloadPage()">Reload</button>
 </footer>
+<!-- Added reload button with pencil image -->
+<button class="reload-button" onclick="reloadPage()">
+    <div class="pencil-image"></div>
+</button>
 
 <script>
     function reloadPage() {
