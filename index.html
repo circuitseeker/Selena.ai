@@ -10,7 +10,7 @@
         }
         iframe {
             width: 100vw;
-            height: calc(100vh - 30px); /* Adjusted height to accommodate the footer */
+            height: calc(100vh - 50px); /* Decreased height to accommodate the footer */
             border: none; /* Remove border */
         }
         footer {
@@ -21,6 +21,7 @@
             position: fixed;
             bottom: 0;
             width: 100%; /* Updated width to 100% */
+            height: 30px; /* Decreased height of the footer */
         }
         /* Added styles for the reload button */
         .reload-button {
@@ -39,31 +40,4 @@
         .pencil-image {
             width: 50px; /* Set width */
             height: 50px; /* Set height */
-            background-image: url('images/pencile.png'); /* Add pencil image */
-            background-size: cover;
-            border-radius: 50%
-        }
-    </style>
-</head>
-<body>
-<iframe
-    src="https://app.droxy.ai/guest-chatbot/662e3816daafede26aa37ea2"
-    width="100%"
-    height="100%"
-    frameborder="0">
-</iframe>
-<footer>
-  <p> Selena.ai Powered by Circuit seekers #Circuit RIKA</p>
-</footer>
-<!-- Added reload button with pencil image -->
-<button class="reload-button" onclick="reloadPage()">
-    <div class="pencil-image"></div>
-</button>
-
-<script>
-    function reloadPage() {
-        location.reload();
-    }
-</script>
-</body>
-</html>
+            background-image: url('images/pencil.png'); /* Add pencil imag
