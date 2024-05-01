@@ -6,7 +6,6 @@
             height: 100%;
             margin: 0; /* Remove default margin */
             overflow: hidden; /* Hide any overflow content */
-            position: relative; /* Set position to relative */
         }
         iframe {
             width: 100vw;
@@ -22,27 +21,6 @@
             bottom: 0;
             width: 100%; /* Updated width to 100% */
         }
-        /* Added styles for the reload button */
-        .reload-button {
-            position: fixed;
-            top: 10px; /* Adjust top position */
-            right: 10px; /* Adjust right position */
-            background-color: transparent;
-            border: none;
-            cursor: pointer;
-            z-index: 999; /* Ensure it's above other content */
-            width: 40px; /* Increase width */
-            height: 40px; /* Increase height */
-            
-        }
-        /* Added styles for the pencil image */
-        .pencil-image {
-            width: 20px; /* Set width */
-            height: 20px; /* Set height */
-            background-image: url('images/pencile.png'); /* Add pencil image */
-            background-size: cover;
-            border-radius: 50%;
-        }
     </style>
 </head>
 <body>
@@ -55,15 +33,5 @@
 <footer>
   <p> Selena.ai Powered by Circuit seekers #Circuit RIKA</p>
 </footer>
-<!-- Added reload button with pencil image -->
-<button class="reload-button" onclick="reloadPage()">
-    <div class="pencil-image"></div>
-</button>
-
-<script>
-    function reloadPage() {
-        location.reload();
-    }
-</script>
 </body>
 </html>
