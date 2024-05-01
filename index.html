@@ -14,12 +14,23 @@
         }
         footer {
             text-align: center;
-            padding: 0.02em 0; /* Added padding to the footer */
+            padding: 10px 0; /* Added padding to the footer */
             background-color: #F0EEEE; /* Changed background color */
             color: black;
             position: fixed;
             bottom: 0;
             width: 100%; /* Updated width to 100% */
+        }
+        
+        /* Optional: Add media queries for specific device sizes */
+        @media only screen and (max-width: 600px) {
+            /* Adjust styles for smaller devices (e.g., smartphones) */
+            iframe {
+                height: calc(100vh - 60px); /* Adjusted height for smaller devices */
+            }
+            footer {
+                padding: 5px 0; /* Adjusted padding for smaller devices */
+            }
         }
     </style>
 </head>
