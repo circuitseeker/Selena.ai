@@ -4,58 +4,72 @@
     <style>
         body, html {
             height: 100%;
-            margin: 0; /* Remove default margin */
-            overflow: hidden; /* Hide any overflow content */
-            position: relative; /* Set position to relative */
+            margin: 0;
+            overflow: hidden;
+            position: relative;
         }
         iframe {
             width: 100vw;
-            height: calc(100vh - 30px); /* Adjusted height to accommodate the footer */
-            border: none; /* Remove border */
+            height: calc(100vh - 30px);
+            border: none;
+            display: block; /* Ensure the iframe is visible */
         }
         footer {
             text-align: center;
-            padding: 0.02em 0; /* Added padding to the footer */
-            background-color: #F0EEEE; /* Changed background color */
+            padding: 0.02em 0;
+            background-color: #F0EEEE;
             color: black;
             position: fixed;
             bottom: 0;
-            width: 100%; /* Updated width to 100% */
+            width: 100%;
         }
-        /* Added styles for the reload button */
         .reload-button {
             position: fixed;
-            top: 20px; /* Adjust top position */
-            right: 20px; /* Adjust right position */
+            top: 20px;
+            right: 20px;
             background-color: transparent;
             border: none;
             cursor: pointer;
-            z-index: 999; /* Ensure it's above other content */
-            width: 40px; /* Increase width */
-            height: 40px; /* Increase height */
-            
+            z-index: 999;
+            width: 40px;
+            height: 40px;
         }
-        /* Added styles for the pencil image */
         .pencil-image {
-            width: 50px; /* Set width */
-            height: 50px; /* Set height */
-            background-image: url('images/pencile.png'); /* Add pencil image */
+            width: 50px;
+            height: 50px;
+            background-image: url('images/pencile.png');
             background-size: cover;
-            border-radius: 50%
+            border-radius: 50%;
+        }
+        .no-internet-message {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            color: #000000;
         }
     </style>
 </head>
 <body>
+<div id="internetCheck" class="no-internet-message" style="display:none;">
+    No Internet Connection
+</div>
 <iframe
+    id="mainFrame"
     src="https://app.droxy.ai/guest-chatbot/662e3816daafede26aa37ea2"
     width="100%"
     height="100%"
     frameborder="0">
 </iframe>
 <footer>
-  <p> Selena.ai Powered by Circuit Rika All rights reserved Circuit Seekers®</p>
+    <p> Selena.ai Powered by Circuit Rika All rights reserved Circuit Seekers®</p>
 </footer>
-<!-- Added reload button with pencil image -->
 <button class="reload-button" onclick="reloadPage()">
     <div class="pencil-image"></div>
 </button>
@@ -64,6 +78,25 @@
     function reloadPage() {
         location.reload();
     }
+
+    // Check internet connection status
+    function checkInternet() {
+        var internetCheckDiv = document.getElementById("internetCheck");
+        var mainFrame = document.getElementById("mainFrame");
+
+        if (!navigator.onLine) {
+            internetCheckDiv.style.display = "flex";
+            mainFrame.style.display = "none";
+        } else {
+            internetCheckDiv.style.display = "none";
+            mainFrame.style.display = "block";
+        }
+    }
+
+    // Call checkInternet() initially and add event listener for online/offline changes
+    checkInternet();
+    window.addEventListener('online', checkInternet);
+    window.addEventListener('offline', checkInternet);
 </script>
 </body>
 </html>
